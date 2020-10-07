@@ -1,0 +1,3 @@
+./elixir_buildpack.config
+./phoenix_static_buildpack.config
+https://github.com/gigalixir/gigalixir-buildpack-distillery.git
