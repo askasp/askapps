@@ -10,7 +10,7 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :stadler_no, StadlerNoWeb.Endpoint,
-  server: true, # Without this line, your app will not start the web server!
+#  server: true, # Without this line, your app will not start the web server!
   load_from_system_env: true, # Needed for Phoenix 1.3. Doesn't hurt for other versions
   http: [port: {:system, "PORT"}], # Needed for Phoenix 1.2 and 1.4. Doesn't hurt for 1.3.
   secret_key_base: "${SECRET_KEY_BASE}",

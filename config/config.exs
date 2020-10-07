@@ -18,5 +18,6 @@ import Config
 #
 
 
+import_config "../apps/proxy/config/config.exs"
 import_config "../apps/stadler_no/config/config.exs"
 import_config "../apps/prova_no/config/config.exs"

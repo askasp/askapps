@@ -50,8 +50,10 @@ release :askapps do
   set version: "0.1.0"
   set applications: [
     :runtime_tools,
+    :os_mon,
     prova_no: :permanent,
-    stadler_no: :permanent
+    stadler_no: :permanent,
+    proxy: :permanent
   ]
 end
 
