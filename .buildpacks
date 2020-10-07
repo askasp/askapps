@@ -1,0 +1,3 @@
+https://github.com/HashNuke/heroku-buildpack-elixir
+./phoenix_static_buildpack.config
+https://github.com/gigalixir/gigalixir-buildpack-distillery.git
