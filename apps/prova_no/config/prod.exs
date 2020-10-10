@@ -15,8 +15,8 @@ config :prova_no, ProvaNoWeb.Endpoint,
   load_from_system_env: true, # Needed for Phoenix 1.3. Doesn't hurt for other versions
   http: [port: {:system, "PORT"}], # Needed for Phoenix 1.2 and 1.4. Doesn't hurt for 1.3.
   secret_key_base: "${SECRET_KEY_BASE}",
-  url: [host: "${APP_NAME}.gigalixirapp.com", port: 443],
-  check_origin: ["//*stadler.no"],
+  url: [host: "prova.stadler.no", port: 443],
+  check_origin: ["//*stadler.no", "//prova.stadler.no"],
   cache_static_manifest: "priv/static/cache_manifest.json",
   version: Mix.Project.config[:version] # To bust cache during hot upgrades
 # Do not print debug messages in production
