@@ -20,6 +20,7 @@ config :prova_no, ProvaNoWeb.Endpoint,
       cd: Path.expand("../assets", __DIR__)
     ]
   ]
+config :prova_no, dashboard_pwd: "hei"
 
 # ## SSL Support
 #

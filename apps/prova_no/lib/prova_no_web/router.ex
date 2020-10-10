@@ -1,6 +1,7 @@
 defmodule ProvaNoWeb.Router do
   use ProvaNoWeb, :router
 
+  import Plug.BasicAuth
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -12,6 +13,9 @@ defmodule ProvaNoWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+  end
+  pipeline :admins_only do
+    plug :basic_auth, username: "admin", password: Application.get_env(:prova_no, :dashboard_pwd)
   end
 
   scope "/", ProvaNoWeb do
@@ -35,7 +39,7 @@ defmodule ProvaNoWeb.Router do
     import Phoenix.LiveDashboard.Router
 
     scope "/" do
-      pipe_through :browser
+      pipe_through [:browser, :admins_only]
       live_dashboard "/dashboard", metrics: ProvaNoWeb.Telemetry
   end
 end

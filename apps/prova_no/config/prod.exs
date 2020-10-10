@@ -23,6 +23,8 @@ config :prova_no, ProvaNoWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :prova_no, dashboard_pwd: "${DASHBOARD_PWD}"
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
