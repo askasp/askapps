@@ -12,6 +12,10 @@ backends: [
      phoenix_endpoint: ProvaNoWeb.Endpoint
     },
     %{
+      host: ~r/askapps.gigalixirapp.com/,
+     phoenix_endpoint: ProvaNoWeb.Endpoint
+    },
+    %{
       host: ~r/stadler.stadler.no/,
      phoenix_endpoint: StadlerNoWeb.Endpoint
     },
