@@ -15,7 +15,7 @@ config :stadler_no, StadlerNoWeb.Endpoint,
   http: [port: {:system, "PORT"}], # Needed for Phoenix 1.2 and 1.4. Doesn't hurt for 1.3.
   secret_key_base: "${SECRET_KEY_BASE}",
   url: [host: "${APP_NAME}.gigalixirapp.com", port: 443],
-  check_origin: ["*stadler.no"],
+  check_origin: ["//stadler.no"],
   cache_static_manifest: "priv/static/cache_manifest.json",
   version: Mix.Project.config[:version] # To bust cache during hot upgrades
 # Do not print debug messages in production
