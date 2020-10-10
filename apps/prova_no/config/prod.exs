@@ -24,6 +24,7 @@ config :prova_no, ProvaNoWeb.Endpoint,
 config :logger, level: :info
 
 
+config :prova_no, dashboard_pwd: System.fetch_env!("DASHBOARD_PWD")
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
