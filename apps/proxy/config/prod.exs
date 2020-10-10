@@ -3,7 +3,6 @@ use Mix.Config
 config :master_proxy, 
   # any Cowboy options are allowed
   http: [:inet6, port: 80],
-  https: [:inet6, port: 443],
   backends: [
     %{
       host: ~r/prova.stadler.no/,
