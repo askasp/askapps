@@ -6,11 +6,11 @@ config :master_proxy,
   https: [:inet6, port: 443],
   backends: [
     %{
-      host: ~r/askapps.gigalixirapp.com/,
+      host: ~r/prova.stadler.no/,
      phoenix_endpoint: ProvaNoWeb.Endpoint
     },
     %{
-      host: ~r/stadler.askapps.gigalixirapp.com/,
+      host: ~r/stadler.stadler.no/,
      phoenix_endpoint: StadlerNoWeb.Endpoint
     },
     ]
