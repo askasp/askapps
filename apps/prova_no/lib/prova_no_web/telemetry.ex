@@ -25,6 +25,7 @@ defmodule ProvaNoWeb.Telemetry do
       summary("phoenix.endpoint.stop.duration",
         unit: {:native, :millisecond}
       ),
+      counter("phoenix.endpoint.stop.duration"),
       summary("phoenix.router_dispatch.stop.duration",
         tags: [:route],
         unit: {:native, :millisecond}
