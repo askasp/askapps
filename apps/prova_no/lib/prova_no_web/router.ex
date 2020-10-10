@@ -1,10 +1,6 @@
 defmodule ProvaNoWeb.Router do
   use ProvaNoWeb, :router
 
-
-  @a Application.get_env(:prova_no, :dashboard_pwd)
-  IO.inspect @a
-
   import Plug.BasicAuth
   pipeline :browser do
     plug :accepts, ["html"]
