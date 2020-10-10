@@ -38,7 +38,8 @@ environment :prod do
   set include_erts: true
   set include_src: false
   set cookie: :"Z(nN^G0xJ0Lz1/S_.>bD9!biwhKC]X`1:T=n)k2oF:OljS!aW)SY;T>L.I=IPda>"
-  set vm_args: "rel/vm.args"
+  set vm_args: "rel/vm.args",
+  config :prova_no, dashboard_pwd: "${DASHBOARD_PWD}"
 end
 
 # You may define one or more releases in this file.
