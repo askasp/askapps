@@ -11,7 +11,11 @@ defmodule StadlerNo.MixProject do
       lockfile: "../../mix.lock",
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+
+      erlc_paths: ["src", "gen"],
+      compilers: [:gleam, :phoenix, :gettext] ++  Mix.compilers(),
+      #compilers: [:gleam, :phoenix, :gettext] ++  Mix.compilers(),
+      #compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
@@ -44,8 +48,11 @@ defmodule StadlerNo.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_dashboard, "~> 0.2"},
       {:telemetry_metrics, "~> 0.4"},
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
+      {:mix_gleam, in_umbrella: true},
+      {:typed_struct, "~> 0.2.1"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"}
     ]

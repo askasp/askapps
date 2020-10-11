@@ -1,9 +1,24 @@
 defmodule StadlerNoWeb.PageLive do
   use StadlerNoWeb, :live_view
 
+
+  #Unsafe code.
+  @spec init(any) :: {:ok, Model.t} | {:error, atom}
+  def init(page) when page in [["/"],["home"]] do
+    case page do
+      ["/"] -> {:ok, {:home, HomeModel.new("aksel")}}
+      ["home"] -> {:ok, {:home, HomeModel.new("tor")}}
+     end
+  end
+
+  @spec init(any) :: {:ok, Model.t} | {:error, atom}
+  def init(page), do: {:error, :not_found}
+
+
   @impl true
-  def mount(_params, _session, socket) do
-    {:ok, assign(socket, query: "", results: %{})}
+  def mount(params, _session, socket) do
+
+    {:ok, assign(socket, query: "", results: %{}, title: :hello_world.hello())}
   end
 
   @impl true

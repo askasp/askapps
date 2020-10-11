@@ -6,11 +6,11 @@ config :master_proxy,
   #https: [:inet6, port: 4443],
   backends: [
     %{
-      host: ~r/mindles-gargantuan-halcyon.gigalixirapp.com/,
+      host: ~r/stadler.prova.no/,
      phoenix_endpoint: ProvaNoWeb.Endpoint
     },
     %{
-      host: ~r/stadler.mindles-gargantuan-halcyon.gigalixirapp.com/,
+      host: ~r/stadler.stadler.no/,
      phoenix_endpoint: StadlerNoWeb.Endpoint
     },
     ]
