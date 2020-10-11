@@ -6,7 +6,9 @@ defmodule Askapps.MixProject do
       apps_path: "apps",
       version: "0.1.1",
       start_permanent: Mix.env() == :prod,
+
       deps: deps(),
+      erlc_paths: ["apps/stadler_no/src", "apps/stadler_no/gen"],
       releases: [
        askapps: [
        	applications: [
@@ -14,7 +16,8 @@ defmodule Askapps.MixProject do
        	stadler_no: :permanent,
        	proxy: :permanent,
        	mix_gleam: :permanent
-       	]
+       	],
+
        ]
       ]
 
