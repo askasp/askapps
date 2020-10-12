@@ -8,15 +8,17 @@ defmodule Askapps.MixProject do
       start_permanent: Mix.env() == :prod,
 
       deps: deps(),
-      erlc_paths: ["apps/stadler_no/src", "apps/stadler_no/gen"],
       releases: [
        askapps: [
+       overlays: "./apps/stadler_no/gen/src",
        	applications: [
        	prova_no: :permanent,
        	stadler_no: :permanent,
        	proxy: :permanent,
        	mix_gleam: :permanent
+
        	],
+
 
        ]
       ]

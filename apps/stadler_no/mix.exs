@@ -13,9 +13,7 @@ defmodule StadlerNo.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
 
       erlc_paths: ["src", "gen"],
-      compilers: [:gleam, :phoenix, :gettext] ++  Mix.compilers(),
-      #compilers: [:gleam, :phoenix, :gettext] ++  Mix.compilers(),
-      #compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      compilers: [:phoenix, :gettext, ] ++  Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
