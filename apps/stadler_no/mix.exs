@@ -12,7 +12,6 @@ defmodule StadlerNo.MixProject do
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
 
-      erlc_paths: ["src", "gen"],
       compilers: [:phoenix, :gettext, ] ++  Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
