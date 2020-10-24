@@ -34,9 +34,9 @@ defmodule StadlerNoWeb.PageLive do
  def home_page(assigns) do
    ~L"""
      <div class="flex h-screen ">
-	<div class="m-auto text-center">
+	<div clpass="m-auto text-center">
 	    <h1 class="text-stadler text-3xl">Aksel Stadler</h1>
-	    <h1 class="text-white opacity-75 text-base ">Robotics Engineer & Pprogrammer</h1>
+	    <h1 class="text-white opacity-75 text-base ">Robotics Engineer & Programmer</h1>
   	</div>
      </div>
    
