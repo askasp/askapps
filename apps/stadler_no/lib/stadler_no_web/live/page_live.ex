@@ -36,7 +36,7 @@ defmodule StadlerNoWeb.PageLive do
      <div class="flex h-screen ">
 	<div class="m-auto text-center">
 	    <h1 class="text-stadler text-3xl">Aksel Stadler</h1>
-	    <h1 class="text-white opacity-75 text-base ">Robotics Engineer & Pprogrammer</h1>
+	    <h1 class="text-white opacity-75 text-base ">Robotics Engineer & Programmer</h1>
   	</div>
      </div>
    
