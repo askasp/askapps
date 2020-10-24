@@ -47,7 +47,7 @@ defmodule StadlerNoWeb.PageLive do
   def burger_menu(assigns) do
     ~L"""
     <div phx-click="toggle-menu" style="position: fixed; top:20px; right:20px">
-    <i class="material-icons text-white opacity-75">
+    <i class="material-icons text-white opacity-75 text-2xl">
       <%= if @show_menu do  %>
       	clear
       <% else %>
