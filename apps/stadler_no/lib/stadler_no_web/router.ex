@@ -17,6 +17,14 @@ defmodule StadlerNoWeb.Router do
   pipeline :admins_only do
     plug :basic_auth, username: "admin", password: Application.get_env(:prova_no, :dashboard_pwd)
   end
+
+
+    import Phoenix.LiveDashboard.Router
+    scope "/" do
+      pipe_through [:browser, :admins_only]
+      live_dashboard "/dashboard", metrics: StadlerNoWeb.Telemetry
+    end
+  
  
   scope "/", StadlerNoWeb do
     pipe_through :browser
@@ -38,9 +46,4 @@ defmodule StadlerNoWeb.Router do
   # you can use Plug.BasicAuth to set up some basic authentication
   # as long as you are also using SSL (which you should anyway).
 
-    import Phoenix.LiveDashboard.Router
-    scope "/" do
-      pipe_through [:browser, :admins_only]
-      live_dashboard "/dashboard", metrics: StadlerNoWeb.Telemetry
-    end
   end

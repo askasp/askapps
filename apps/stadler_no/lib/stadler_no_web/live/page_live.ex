@@ -2,53 +2,63 @@ defmodule StadlerNoWeb.PageLive do
   use StadlerNoWeb, :live_view
 
 
-  #Unsafe code.
-  @spec init(any) :: {:ok, Model.t} | {:error, atom}
-  def init(page) when page in [["/"],["home"]] do
-    case page do
-      ["/"] -> {:ok, {:home, HomeModel.new("aksel")}}
-      ["home"] -> {:ok, {:home, HomeModel.new("tor")}}
-     end
+  @impl true
+  def mount(_params, _session, socket) do
+      {:ok, assign(socket, page: :home, show_menu: false)}
   end
 
-  @spec init(any) :: {:ok, Model.t} | {:error, atom}
-  def init(page), do: {:error, :not_found}
 
+  def handle_event(event, a, socket) do
+    new_socket =
+    case event do
+      "toggle-menu" -> assign(socket, show_menu: !socket.assigns.show_menu)
+      _ -> socket
+      end
 
-  @impl true
-  def mount(params, _session, socket) do
+     {:noreply, new_socket}
 
-    {:ok, assign(socket, query: "", results: %{}, title: :hello_world.hello())}
   end
 
-  @impl true
-  def handle_event("suggest", %{"q" => query}, socket) do
-    {:noreply, assign(socket, results: search(query), query: query)}
+
+  def render(assigns) do
+    ~L"""
+    <%= burger_menu(assigns) %>
+     <%= case @page do %>
+      	<%_ -> %> <%= home_page(assigns) %>
+    <% end %>
+     """
   end
 
-  @impl true
-  def handle_event("search", %{"q" => query}, socket) do
-    case search(query) do
-      %{^query => vsn} ->
-        {:noreply, redirect(socket, external: "https://hexdocs.pm/#{query}/#{vsn}")}
 
-      _ ->
-        {:noreply,
-         socket
-         |> put_flash(:error, "No dependencies found matching \"#{query}\"")
-         |> assign(results: %{}, query: query)}
+
+ def home_page(assigns) do
+   ~L"""
+     <div class="flex h-screen ">
+	<div class="m-auto text-center">
+	    <h1 class="text-stadler text-3xl">Aksel Stadler</h1>
+	    <h1 class="text-white opacity-75 text-xs ">Robotics Engineer & Programmer</h1>
+  	</div>
+     </div>
+   
+   """
+ end
+
+
+  def burger_menu(assigns) do
+    ~L"""
+    <div phx-click="toggle-menu" style="position: fixed; top:20px; right:20px">
+    <i class="material-icons text-white opacity-75">
+      <%= if @show_menu do  %>
+      	clear
+      <% else %>
+        menu
+      <% end %>
+    </i>
+    </div>
+
+    """
     end
-  end
-
-  defp search(query) do
-    if not StadlerNoWeb.Endpoint.config(:code_reloader) do
-      raise "action disabled when not in development"
-    end
-
-    for {app, desc, vsn} <- Application.started_applications(),
-        app = to_string(app),
-        String.starts_with?(app, query) and not List.starts_with?(desc, ~c"ERTS"),
-        into: %{},
-        do: {app, vsn}
-  end
+ 
 end
+
+    
