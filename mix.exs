@@ -15,7 +15,6 @@ defmodule Askapps.MixProject do
        	prova_no: :permanent,
        	stadler_no: :permanent,
        	proxy: :permanent,
-       	mix_gleam: :permanent
 
        	],
 
