@@ -10,7 +10,6 @@ defmodule Askapps.MixProject do
       deps: deps(),
       releases: [
        askapps: [
-       overlays: "./apps/stadler_no/gen/src",
        	applications: [
        	prova_no: :permanent,
        	stadler_no: :permanent,
