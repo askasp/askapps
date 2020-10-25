@@ -108,7 +108,7 @@ defmodule StadlerNoWeb.PageLive do
     <div class="nav-links">
       <a phx-click="nav-home"> Home </a>
       <a phx-click="nav-projects"> Projects</a>
-      <a href="/blogs">  Blogs </a>
+      <a>  Blogs </a>
     """
   end
 

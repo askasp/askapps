@@ -4,7 +4,7 @@ defmodule StadlerNo.MixProject do
   def project do
     [
       app: :stadler_no,
-      version: "0.0.5",
+      version: "0.0.6",
       build_path: "../../_build",
       config_path: "../../config/config.exs",
       deps_path: "../../deps",
