@@ -9,7 +9,12 @@ module.exports = {
       colors:{
         'stadler': '#f2b02c',
         'koronavenn':'#fff7dd',
-        },},
+        },
+      opacity:{
+        '67': '0.67'
+      },
+
+        },
   },
   variants: {},
   plugins: [],

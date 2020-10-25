@@ -46,7 +46,8 @@ let
     export PATH=$MIX_HOME/bin:$PATH
     export PATH=$HEX_HOME/bin:$PATH
     export LANG=en_US.UTF-8
-    export PATH=$PATH:$(pwd)/_build/pip_packages/bin
+    export PATH=$PATH:$(pwd)/_build/pip_packages/bin:/home/ask/opt/
+    
     export ERL_AFLAGS="-kernel shell_history enabled"
   '';
 
