@@ -71,5 +71,33 @@ a:hover{
   outline: 0px;
 }
 
+
+
+th {
+    border-bottom: 1px solid rgba(255,255,255,0.60) !important;
+
+}
+th,td {
+  padding: 8px;
+  text-align: left;
+}
+
+
+
+pre{
+    white-space: pre-wrap;
+    white-space: moz-pre-wrap;
+    white-space: -pre-wrap; 
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+
+pre code {
+  background-color: rgba(255,255,255,0.08);
+  display: block;
+  padding: 20px;
+}
+
 /* LiveView specific classes for your customizations */
 

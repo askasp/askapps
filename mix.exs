@@ -7,20 +7,7 @@ defmodule Askapps.MixProject do
       version: "0.1.1",
       start_permanent: Mix.env() == :prod,
 
-      deps: deps(),
-      releases: [
-       askapps: [
-       	applications: [
-       	prova_no: :permanent,
-       	stadler_no: :permanent,
-       	proxy: :permanent,
-
-       	],
-
-
-       ]
-      ]
-
+      deps: deps()
 
     ]
   end
