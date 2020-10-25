@@ -14,22 +14,22 @@ defmodule StadlerNoWeb.Router do
   pipeline :api do
     plug :accepts, ["json"]
   end
+
   pipeline :admins_only do
     plug :basic_auth, username: "admin", password: Application.get_env(:prova_no, :dashboard_pwd)
   end
 
+  import Phoenix.LiveDashboard.Router
 
-    import Phoenix.LiveDashboard.Router
-    scope "/" do
-      pipe_through [:browser, :admins_only]
-      live_dashboard "/dashboard", metrics: StadlerNoWeb.Telemetry
-    end
-  
- 
+  scope "/" do
+    pipe_through [:browser, :admins_only]
+    live_dashboard "/dashboard", metrics: StadlerNoWeb.Telemetry
+  end
+
   scope "/", StadlerNoWeb do
     pipe_through :browser
 
-    #Pokemon route
+    # Pokemon route
     live "/*page", PageLive, :index
   end
 
@@ -45,5 +45,4 @@ defmodule StadlerNoWeb.Router do
   # If your application does not have an admins-only section yet,
   # you can use Plug.BasicAuth to set up some basic authentication
   # as long as you are also using SSL (which you should anyway).
-
-  end
+end

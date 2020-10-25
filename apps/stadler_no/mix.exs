@@ -11,8 +11,7 @@ defmodule StadlerNo.MixProject do
       lockfile: "../../mix.lock",
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
-
-      compilers: [:phoenix, :gettext, ] ++  Mix.compilers(),
+      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
@@ -39,11 +38,11 @@ defmodule StadlerNo.MixProject do
   defp deps do
     [
       {:phoenix, "~> 1.5.5"},
-      {:phoenix_live_view, "~> 0.14.6"},
+      {:phoenix_live_view, "~> 0.14.7"},
       {:floki, ">= 0.27.0", only: :test},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_dashboard, "~> 0.2"},
+      {:phoenix_live_dashboard, "~> 0.3.2"},
       {:telemetry_metrics, "~> 0.4"},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:telemetry_poller, "~> 0.4"},

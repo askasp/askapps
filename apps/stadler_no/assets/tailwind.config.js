@@ -7,7 +7,9 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        'stadler': '#f2b02c'},},
+        'stadler': '#f2b02c',
+        'koronavenn':'#fff7dd',
+        },},
   },
   variants: {},
   plugins: [],

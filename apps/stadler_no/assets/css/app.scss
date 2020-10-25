@@ -13,6 +13,63 @@
 
 body{
   font-family: 'Space Mono', monospace;
+  max-width: 40em;
+  margin: 16px auto auto;
+  padding: 32px;
 }
+
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width:100%;
+  text-align:center;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+
+.nav-links{
+  margin-top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+@media (min-width: 480px) {
+ .nav-links {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   margin-top: 16px;
+   text-align: center;
+  }
+}
+
+
+a{
+  color: rgba(255,255,255,0.67);
+  width: 100%;
+  padding-bottom: 8px;
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #f2b02c;
+}
+.nav-links a:active{
+  border: 0px;
+}
+.nav-links a:focus{
+  border: 0px;
+  outline: 0px;
+}
+
 /* LiveView specific classes for your customizations */
 
