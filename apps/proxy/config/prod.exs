@@ -19,5 +19,9 @@ backends: [
       host: ~r/stadler.stadler.no/,
      phoenix_endpoint: StadlerNoWeb.Endpoint
     },
+    %{
+      host: ~r/localhost/,
+     phoenix_endpoint: StadlerNoWeb.Endpoint
+    },
     ]
 

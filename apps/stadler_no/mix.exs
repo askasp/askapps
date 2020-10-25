@@ -4,7 +4,7 @@ defmodule StadlerNo.MixProject do
   def project do
     [
       app: :stadler_no,
-      version: "0.1.1",
+      version: version(),
       build_path: "../../_build",
       config_path: "../../config/config.exs",
       deps_path: "../../deps",
@@ -51,6 +51,49 @@ defmodule StadlerNo.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"}
     ]
+  end
+
+
+ def version do
+    case System.cmd(
+           "git",
+           ["rev-list", "--count", "master"],
+           stderr_to_stdout: true
+         ) do
+      {version, 0} ->
+        version
+        |> String.replace("\n", "")
+        |> fn x -> "0.0.1-#{x}" end.()
+        #|> bump_version()
+#        |> to_string()
+
+
+      x ->
+        IO.inspect x
+        "0.0.0-dev"
+    end
+  end
+
+  defp bump_version(%Version{pre: []} = version) do
+    IO.inspect "heiheihei"
+    IO.inspect "heiheihei"
+    IO.inspect "heiheihei"
+    IO.inspect "heiheihei"
+    IO.inspect "heiheihei"
+    IO.inspect "heiheihei"
+    IO.inspect "heiheihei"
+    IO.inspect version
+    version
+    end
+
+  defp bump_version(%Version{patch: p} = version) do
+    IO.inspect "heiheihei"
+    IO.inspect "heiheihei"
+    IO.inspect "heiheihei"
+    IO.inspect "heiheihei"
+    IO.inspect "heiheihei"
+    IO.inspect version
+    struct(version, patch: p + 1)  
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

@@ -7,6 +7,8 @@
 |> Path.wildcard()
 |> Enum.map(&Code.eval_file(&1))
 
+
+
 use Distillery.Releases.Config,
     # This sets the default release built by `mix distillery.release`
     default_release: :default,
@@ -30,7 +32,7 @@ environment :dev do
   # the --env flag to Distillery explicitly if you want to use
   # dev mode.
   set dev_mode: true
-  set include_erts: false
+  set include_erts: true
   set cookie: :"BHL6{h`G;M]xuOMHWc9E8(:r/Cf=Ro;rfxT^E^L$9GV;A1%>Yk!Fx[YRe2?`fOXx"
 end
 
@@ -47,7 +49,7 @@ end
 # will be used by default
 
 release :askapps do
-  set version: "0.1.5"
+  set version: StadlerNo.MixProject.version()
   set applications: [
     :runtime_tools,
     :os_mon,
