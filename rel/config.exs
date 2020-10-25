@@ -49,7 +49,7 @@ end
 # will be used by default
 
 release :askapps do
-  set version: "0.0.2"
+  set version: "0.0.3"
   set applications: [
     :runtime_tools,
     :os_mon,

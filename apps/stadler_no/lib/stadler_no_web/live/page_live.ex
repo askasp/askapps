@@ -4,8 +4,7 @@ defmodule StadlerNoWeb.PageLive do
   @impl true
   def mount(_params, _session, socket) do
     
-    
-    {:ok, assign(socket, chat_log: "jada", page: "home", previous_page: false)}
+    {:ok, assign(socket, page: "home", previous_page: false)}
   end
 
   @impl true
@@ -22,9 +21,6 @@ defmodule StadlerNoWeb.PageLive do
   def handle_event(event, a, socket) do
     new_socket =
       case event do
-        "consolelog" -> IO.inspect("hei server side")
-        		Pubsub.Phoenix.broadcast("simenaksel", "asdas")
-        		socket
         "toggle-menu" -> handle_menu_toggle(socket)
         "nav-home" -> push_patch(socket, to: "/home")
         "nav-projects" -> push_patch(socket, to: "/projects")
@@ -37,7 +33,6 @@ defmodule StadlerNoWeb.PageLive do
 
   def render(assigns) do
     ~L"""
-    <p class="text-white"> <%= @chat_log %> </p>
     <%= burger_menu(assigns) %>
     <%= case @page do %>
        <% "menu" -> %> <%= menu_page(assigns) %>
