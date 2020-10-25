@@ -46,6 +46,7 @@ defmodule StadlerNo.MixProject do
       {:telemetry_metrics, "~> 0.4"},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:telemetry_poller, "~> 0.4"},
+      
       {:gettext, "~> 0.11"},
       {:typed_struct, "~> 0.2.1"},
       {:jason, "~> 1.0"},
