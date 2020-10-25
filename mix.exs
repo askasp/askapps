@@ -4,8 +4,6 @@ defmodule Askapps.MixProject do
   def project do
     [
       apps_path: "apps",
-      app: :askapps,
-      version: version(),
       start_permanent: Mix.env() == :prod,
       deps: deps()
 

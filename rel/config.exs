@@ -49,7 +49,7 @@ end
 # will be used by default
 
 release :askapps do
-  set version: StadlerNo.MixProject.version()
+  set version: "0.0.2"
   set applications: [
     :runtime_tools,
     :os_mon,
