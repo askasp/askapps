@@ -48,7 +48,7 @@ defmodule StadlerNoWeb.PageLive do
     ~L"""
       <div class="centered">
       <div clpass="m-auto text-center">
-      	<h1 class="text-stadler text-3xl">Akseel Stadler</h1>
+      	<h1 class="text-stadler text-3xl">Aksel Stadler</h1>
       	<h1 class="text-white opacity-67 text-sm ">Robotics Engineer & Programmer</h1>
       </div>
       </div>
