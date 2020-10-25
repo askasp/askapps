@@ -63,7 +63,7 @@ defmodule StadlerNo.MixProject do
       {version, 0} ->
         version
         |> String.replace("\n", "")
-        |> fn x -> "0.0.1-#{x}" end.()
+        |> fn x -> "0.0.#{x}" end.()
         #|> bump_version()
 #        |> to_string()
 
