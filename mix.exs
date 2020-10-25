@@ -11,29 +11,27 @@ defmodule Askapps.MixProject do
 
     ]
   end
-
-
- defp version do
+  
+ def version do
     case System.cmd(
            "git",
-           ~w[describe --dirty=+dirty],
+           ["rev-list", "--count", "master"],
            stderr_to_stdout: true
          ) do
       {version, 0} ->
         version
-        |> Version.parse()
-        |> bump_version()
-        |> to_string()
+        |> String.replace("\n", "")
+        |> fn x -> "0.0.1-#{x}" end.()
+        #|> bump_version()
+#        |> to_string()
 
-      _ ->
+
+      x ->
+        IO.inspect x
         "0.0.0-dev"
     end
   end
 
-  defp bump_version(%Version{pre: []} = version), do: version
-
-  defp bump_version(%Version{patch: p} = version),
-    do: struct(version, patch: p + 1)
   
 
   # Dependencies listed here are available only for this
