@@ -8,6 +8,10 @@ config :master_proxy,
 #  http: [port: {:system, "PORT"}],
 backends: [
     %{
+      host: ~r/stadler.no/,
+     phoenix_endpoint: StadlerNoWeb.Endpoint
+    },
+    %{
       host: ~r/prova.stadler.no/,
      phoenix_endpoint: ProvaNoWeb.Endpoint
     },
