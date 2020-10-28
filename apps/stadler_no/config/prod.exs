@@ -17,7 +17,7 @@ config :stadler_no, StadlerNoWeb.Endpoint,
   http: [port: {:system, "PORT"}],
   secret_key_base: "${SECRET_KEY_BASE}",
   url: [host: "stadler.stadler.no", port: 443],
-  check_origin: ["//stadler.stadler.no", "//localhost"],
+  check_origin: ["//stadler.stadler.no", "//localhost", "//stadler.no"],
   cache_static_manifest: "priv/static/cache_manifest.json",
   # To bust cache during hot upgrades
   version: Mix.Project.config()[:version]
