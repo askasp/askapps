@@ -9,6 +9,7 @@ defmodule StadlerNoWeb.Router do
     plug :put_root_layout, {StadlerNoWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :log
   end
 
   pipeline :api do
@@ -31,6 +32,13 @@ defmodule StadlerNoWeb.Router do
 
     # Pokemon route
     live "/*page", PageLive, :index
+  end
+
+
+  def log(conn, _opts) do
+    IO.inspect(conn)
+    conn
+
   end
 
   # Other scopes may use custom stacks.
