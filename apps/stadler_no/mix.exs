@@ -50,7 +50,11 @@ defmodule StadlerNo.MixProject do
       {:gettext, "~> 0.11"},
       {:typed_struct, "~> 0.2.1"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:otp_cqrs, git: "https://gitlab.com/akselsk/otp_cqrs"},
+    {:geoip, "~> 0.2"}
+
+
     ]
   end
 
@@ -76,25 +80,11 @@ defmodule StadlerNo.MixProject do
   end
 
   defp bump_version(%Version{pre: []} = version) do
-    IO.inspect "heiheihei"
-    IO.inspect "heiheihei"
-    IO.inspect "heiheihei"
-    IO.inspect "heiheihei"
-    IO.inspect "heiheihei"
-    IO.inspect "heiheihei"
-    IO.inspect "heiheihei"
-    IO.inspect version
     version
     end
 
   defp bump_version(%Version{patch: p} = version) do
-    IO.inspect "heiheihei"
-    IO.inspect "heiheihei"
-    IO.inspect "heiheihei"
-    IO.inspect "heiheihei"
-    IO.inspect "heiheihei"
-    IO.inspect version
-    struct(version, patch: p + 1)  
+    struct(version, patch: p + 1)
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

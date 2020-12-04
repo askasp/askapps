@@ -39,6 +39,11 @@ defmodule StadlerNoWeb.Router do
     IO.inspect(conn)
     conn
 
+    GeoIP.lookup(conn) |> IO.inspect
+    Application.get_env(:otp_es, :nodes) |> IO.inspect
+    conn
+
+
   end
 
   # Other scopes may use custom stacks.

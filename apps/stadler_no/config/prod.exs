@@ -25,6 +25,8 @@ config :stadler_no, StadlerNoWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :geoip, provider: :ipstack, api_key: System.fetch_env!("ip_stack_key")
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

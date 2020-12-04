@@ -18,11 +18,15 @@ config :stadler_no, StadlerNoWeb.Endpoint,
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
-  metadata: [:request_id]
+metadata: [:request_id]
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :geoip, provider: :ipstack, api_key: System.fetch_env!("ip_stack_key")
+config :otp_es, nodes: [:"askapps@10.8.6.102"]
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
+
+config :goth, json: {:system, "GCP_CREDENTIALS"}
 import_config "#{Mix.env()}.exs"
