@@ -36,11 +36,7 @@ defmodule StadlerNoWeb.Router do
 
 
   def log(conn, _opts) do
-    IO.inspect(conn)
-    conn
 
-    GeoIP.lookup(conn) |> IO.inspect
-    Application.get_env(:otp_es, :nodes) |> IO.inspect
     conn
 
 

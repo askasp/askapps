@@ -52,7 +52,6 @@ defmodule StadlerNo.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:otp_cqrs, git: "https://gitlab.com/akselsk/otp_cqrs"},
-    {:geoip, "~> 0.2"}
 
 
     ]

@@ -26,6 +26,8 @@ config :stadler_no, StadlerNoWeb.Endpoint,
 config :logger, level: :info
 
 
+config :otp_analytics, :ipinfo_api_key, System.fetch_env!("ip_info_key")
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

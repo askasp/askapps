@@ -1,5 +1,4 @@
 # This file is responsible for configuring your umbrella
-# and **all applications** and their dependencies with the
 # help of the Config module.
 #
 # Note that all applications in your umbrella share the
@@ -21,3 +20,14 @@ use Mix.Config
 import_config "../apps/proxy/config/config.exs"
 import_config "../apps/stadler_no/config/config.exs"
 import_config "../apps/prova_no/config/config.exs"
+
+config :otp_es, nodes: [:"askapps@10.8.6.102"]
+
+
+# Import environment specific config. This must remain at the bottom
+# of this file so it overrides the configuration defined above.
+
+config :goth, json: {:system, "GCP_CREDENTIALS"}
+
+
+import_config "#{Mix.env()}.exs"
