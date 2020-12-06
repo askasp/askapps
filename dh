@@ -1,0 +1,3 @@
+git add -u
+git commit -m "deploy"
+git -c http.extraheader="GIGALIXIR-HOT: true" push gigalixir master
