@@ -1,5 +1,5 @@
 
-export GCP_CREDENTIALS=$(cat /home/ask/git/packages/otp_es/askapps-293620-7d58d985821f.json )
+export GCP_CREDENTIALS=$(cat /home/ask/git/.secrets/askapps-7b6e83304aa0.json)
 export BUCKET=otp_est_test
 export IPINFO_API_KEY=9218470f478ec9
-iex --name askapps@10.8.6.102 -S mix
+iex -S mix
