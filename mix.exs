@@ -21,7 +21,6 @@ defmodule Askapps.MixProject do
         |> String.replace("\n", "")
         |> fn x -> "0.0.#{x}" end.()
         #|> bump_version()
-#        |> to_string()
 
 
 
