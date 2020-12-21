@@ -20,6 +20,7 @@ use Mix.Config
 import_config "../apps/proxy/config/config.exs"
 import_config "../apps/stadler_no/config/config.exs"
 import_config "../apps/prova_no/config/config.exs"
+import_config "../apps/live_analytics/config/config.exs"
 
 config :otp_es, nodes: [:"askapps@10.8.6.102"]
 

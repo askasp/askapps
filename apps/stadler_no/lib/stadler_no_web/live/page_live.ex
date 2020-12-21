@@ -40,6 +40,7 @@ defmodule StadlerNoWeb.PageLive do
      	<% "projects" -> %> <%= projects_page(assigns) %>
      	<% "led" -> %> <%= led_page(assigns) %>
      	<% "nixops" -> %> <%= nixops_page(assigns) %>
+      <% _ -> %>  <% home_page(assigns) %>
     <% end %>
     """
   end
