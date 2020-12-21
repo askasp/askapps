@@ -22,6 +22,7 @@ defmodule Askapps.MixProject do
         |> fn x -> "0.0.#{x}" end.()
 
 
+
       x ->
         IO.inspect x
         "0.0.0-dev"
