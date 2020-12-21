@@ -31,3 +31,5 @@ config :goth, json: {:system, "GCP_CREDENTIALS"}
 
 
 import_config "#{Mix.env()}.exs"
+
+config :logger, :level, :all
