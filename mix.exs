@@ -23,9 +23,6 @@ defmodule Askapps.MixProject do
 
         #|> bump_version()
 
-
-
-
       x ->
         IO.inspect x
         "0.0.0-dev"
