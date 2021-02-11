@@ -10,7 +10,7 @@ defmodule StadlerNoWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug :log
-    plug LiveAnalytics.AsyncLogRequest
+#    plug LiveAnalytics.AsyncLogRequest
   end
 
   pipeline :api do
