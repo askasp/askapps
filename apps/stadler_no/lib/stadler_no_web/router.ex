@@ -25,7 +25,7 @@ defmodule StadlerNoWeb.Router do
 
   scope "/" do
     pipe_through [:browser, :admins_only]
-    live "/analytics", LiveAnalyticsWeb.PageLive
+#    live "/analytics", LiveAnalyticsWeb.PageLive
     live_dashboard "/dashboard", metrics: StadlerNoWeb.Telemetry
   end
 
