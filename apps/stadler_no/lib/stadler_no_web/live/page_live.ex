@@ -81,8 +81,20 @@ defmodule StadlerNoWeb.PageLive do
     	image: "/images/telefon.svg",
     	title: "Koronavenn",
     	link: "https://kronavenn.web.app",
-    	description: "KoronavennA service made during the 2020 pandemic. The purpose was to connect quaranteened people so everyone had a call buddy or a 'corona-friend' (which is the title in Norwegian)"
+    	description: "Koronavenn A service made during the 2020 pandemic. The purpose was to connect quaranteened people so everyone had a call buddy or a 'corona-friend' (which is the title in Norwegian)"
     	}) %>
+
+       <%= project_page_intro(%{
+    	image: "/images/eventstore-512.png",
+    	title: "OTP eventstore",
+    	link: "https://gitlab.com/akselsk/otp_es",
+    	description: "A naive eventstore using buckets as storage. Support multible nodes by
+    	              using a hash ring
+    	              Includes an even more naive cqrs module"
+    	}) %>
+
+
+
     
     </section>
     """
