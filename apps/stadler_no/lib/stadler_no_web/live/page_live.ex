@@ -66,14 +66,14 @@ defmodule StadlerNoWeb.PageLive do
     <%= project_page_intro(%{
     	image: "/images/saunandtermo.png",
     	title: "Led Thermometer for Africa Burn",
-    	link: "nav-led",
+    	link: "/led",
     	description: "In Africa burn 2019 we gifted a sauna to the community. We installed a 3m tall LED thermometer so bypassers could see the current sauna temperature. Here is a walkthrough of the code and how I wired it all up"
     	}) %>
     	
        <%= project_page_intro(%{
     	image: "/images/nixops.png",
     	title: "Nixops & Liveview",
-    	link: "nav-nixops",
+    	link: "/nixops",
     	description: "Phoenix liveview is the new go-to framework for building SPAs in much the same way that 2021 is the year of the desktop (fingers crossed). Its killer feature is server-side-rendered dynamic webpages (it is as great as it sounds). Nixops is for people that are too cool for kubernetes"
     	}) %>
 
@@ -85,21 +85,18 @@ defmodule StadlerNoWeb.PageLive do
     	}) %>
 
        <%= project_page_intro(%{
-    	image: "/images/eventstore-512.png",
+    	image: "/images/stack.png",
     	title: "OTP eventstore",
     	link: "https://gitlab.com/akselsk/otp_es",
     	description: "A naive eventstore using buckets as storage. Support multible nodes by
-    	              using a hash ring
+    	              using a hash ring.
     	              Includes an even more naive cqrs module"
     	}) %>
-
-
 
     
     </section>
     """
   end
-
 
   def project_page_intro(assigns) do
     ~L"""
@@ -108,7 +105,7 @@ defmodule StadlerNoWeb.PageLive do
     <img class="w-full bg-koronavenn" src=" <%= Routes.static_path(StadlerNoWeb.Endpoint, @image)  %>"/>
     </div>
     <div class="w-full lg:w-1/2 px-2 ">
-    <a class="text-lg underline " phx-click="<%= @link %>"> <%= @title %> </a>
+    <a class="text-lg underline " href="<%= @link %>"> <%= @title %> </a>
     <p class="text-white opacity-67 text-sm mt-2"> <%= @description %> </p>
     </div>    
     </div>    
