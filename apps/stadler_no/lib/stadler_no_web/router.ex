@@ -9,10 +9,11 @@ defmodule StadlerNoWeb.Router do
     plug :put_root_layout, {StadlerNoWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug :log
+    plug :put_client_ip
 #    plug LiveAnalytics.AsyncLogRequest
   end
 
+    # plug :put_root_layout, {StadlerNoWeb.LayoutView, :root}
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -25,24 +26,28 @@ defmodule StadlerNoWeb.Router do
 
   scope "/" do
     pipe_through [:browser, :admins_only]
-#    live "/analytics", LiveAnalyticsWeb.PageLive
     live_dashboard "/dashboard", metrics: StadlerNoWeb.Telemetry
   end
 
+  scope "/" do
+    pipe_through [:browser]
+    live "/analytics", LiveAnalyticsWeb.PageLive, :index, layout: {LiveAnalyticsWeb.LayoutView, "root.html" }
+  end
+
+    
   scope "/", StadlerNoWeb do
     pipe_through :browser
 
     # Pokemon route
+
+
     live "/*page", PageLive, :index
   end
 
-
-  def log(conn, _opts) do
-
-    conn
-
-
+  def put_client_ip(conn, _) do
+    Plug.Conn.put_session(conn, :remote_ip, LiveAnalytics.extract_ip(conn))
   end
+
 
   # Other scopes may use custom stacks.
   # scope "/api", StadlerNoWeb do

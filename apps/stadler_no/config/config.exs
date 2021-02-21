@@ -24,7 +24,6 @@ metadata: [:request_id]
 config :phoenix, :json_library, Jason
 config :live_analytics, :ipinfo_api_key, System.fetch_env!("IPINFO_API_KEY")
 
-
 config :goth, json: {:system, "GCP_CREDENTIALS"}
 
 import_config "#{Mix.env()}.exs"
