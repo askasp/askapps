@@ -16,8 +16,22 @@ body{
   max-width: 45em;
   margin: 16px auto auto;
   padding: 32px;
+  color: rgba(255,255,255,0.67);
 }
 
+h1{
+    color: #f2b02c;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    border-bottom: 1px solid #f2b02c;
+}
+
+h2{
+    color: #f2b02c;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    margin-top: 0.5rem;
+}
 
 .centered {
   position: fixed;

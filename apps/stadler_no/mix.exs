@@ -51,7 +51,8 @@ defmodule StadlerNo.MixProject do
       {:typed_struct, "~> 0.2.1"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:live_analytics, git: "https://gitlab.com/akselsk/live_analytics"}
+      {:live_analytics, git: "https://gitlab.com/akselsk/live_analytics"},
+      {:live_markdown, git: "https://gitlab.com/akselsk/live_markdown"},
       # {:live_analytics, path: "/home/ask/git/live_analytics/"}
 
     ]
