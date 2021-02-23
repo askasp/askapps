@@ -41,6 +41,7 @@ defmodule StadlerNoWeb.PageLive do
      	<% "led" -> %> <%= africa_burn(assigns) %>
      	<% "nixops" -> %> <%= nixops_page(assigns) %>
      	<% "es" -> %> <%= home_made_es_page(assigns) %>
+     	<% "live_md" -> %> <%= plain_markdown(assigns,"https://gitlab.com/akselsk/live_markdown/-/raw/master/README.md") %>
       <% _ -> %>  <% home_page(assigns) %>
     <% end %>
     """
@@ -50,8 +51,8 @@ defmodule StadlerNoWeb.PageLive do
     ~L"""
       <div class="centered">
       <div clpass="m-auto text-center">
-      	<h1 class="text-stadler text-3xl">Aksel Stadler</h1>
-      	<h1 class="text-white opacity-67 text-sm ">Robotics Engineer & Programmer</h1>
+      	<h1 style="border: 0px;" class="text-3xl">Aksel Stadler</h1>
+      	<h1 style="border: 0px;" class="text-white opacity-67 text-sm ">Robotics Engineer & Programmer</h1>
       </div>
       </div>
 
@@ -93,6 +94,17 @@ defmodule StadlerNoWeb.PageLive do
 
     	}) %>
 
+
+       <%= project_page_intro(%{
+    	image: "/images/markdow.jpg",
+    	title: "Live Markdown (readme)",
+    	link: "/live_md",
+    	description: "Markdown to html service for liveview applications. Gets the markdown from an url, parses it, and stores the html inmemory for faster rendering",
+    	git_link: "https://gitlab.com/akselsk/live_markdown"
+
+    	}) %>
+
+
        <%= project_page_intro(%{
     	image: "/images/stack.png",
     	title: "OTP eventstore",
@@ -115,7 +127,7 @@ defmodule StadlerNoWeb.PageLive do
     <img class="w-full bg-koronavenn" src=" <%= Routes.static_path(StadlerNoWeb.Endpoint, @image)  %>"/>
     </div>
     <div class="w-full lg:w-1/2 px-2 ">
-    <a class="text-lg underline " href="<%= @link %>"> <%= @title %> </a>
+    <%= live_patch @title, to: @link %>
     <p class="text-white opacity-67 text-sm mt-2"> <%= @description %> </p>
 
     <%= if @git_link  do %>
@@ -154,6 +166,13 @@ defmodule StadlerNoWeb.PageLive do
     """
   end
 
+
+  def plain_markdown(assigns, path) do
+      ~L"""
+        <%= raw(LiveMarkdown.html_from_md_path(path)) %>
+     """
+
+  end
 
   def home_made_es_page(assigns) do
       ~L"""
