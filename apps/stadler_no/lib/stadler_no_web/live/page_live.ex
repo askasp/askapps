@@ -41,7 +41,7 @@ defmodule StadlerNoWeb.PageLive do
      	<% "led" -> %> <%= africa_burn(assigns) %>
      	<% "nixops" -> %> <%= nixops_page(assigns) %>
      	<% "es" -> %> <%= home_made_es_page(assigns) %>
-     	<% "live_md" -> %> <%= plain_markdown(assigns,"https://gitlab.com/akselsk/live_markdown/-/raw/master/README.md") %>
+     	<% "live_md" -> %> <%= plain_markdown(assigns,'https://gitlab.com/akselsk/live_markdown/-/raw/master/README.md') %>
       <% _ -> %>  <% home_page(assigns) %>
     <% end %>
     """
@@ -182,7 +182,7 @@ defmodule StadlerNoWeb.PageLive do
 
   def africa_burn(assigns) do
       ~L"""
-        <%= raw(LiveMarkdown.html_from_md_path("https://gitlab.com/akselsk/led-thermometer/-/raw/master/README.md")) %>
+        <%= raw(LiveMarkdown.html_from_md_path('https://gitlab.com/akselsk/led-thermometer/-/raw/master/README.md')) %>
      """
   end
   def nixops_page(assigns) do
