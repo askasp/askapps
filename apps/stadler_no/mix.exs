@@ -24,7 +24,7 @@ defmodule StadlerNo.MixProject do
   def application do
     [
       mod: {StadlerNo.Application, []},
-      extra_applications: [:logger, :runtime_tools, :os_mon]
+      extra_applications: [:logger, :runtime_tools, :os_mon, :inets, :ssl]
     ]
   end
 
