@@ -55,7 +55,7 @@ defmodule StadlerNoWeb.PageLive do
 
      	<% "live_md" -> %>
         <%= menu_page(assigns) %>
-        <hr class="border-solid border-stadler"> </hr>
+        <hr class="border-solid border-stadler mb-4"> </hr>
      	<%= plain_markdown(assigns,'https://gitlab.com/akselsk/live_markdown/-/raw/master/README.md') %>
       <% _ -> %>  <% home_page(assigns) %>
     <% end %>
