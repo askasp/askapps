@@ -33,15 +33,30 @@ defmodule StadlerNoWeb.PageLive do
 
   def render(assigns) do
     ~L"""
-    <%= burger_menu(assigns) %>
     <%= case @page do %>
-       <% "menu" -> %> <%= menu_page(assigns) %>
-     	<% "home" -> %> <%= home_page(assigns) %>
-     	<% "projects" -> %> <%= projects_page(assigns) %>
-     	<% "led" -> %> <%= africa_burn(assigns) %>
-     	<% "nixops" -> %> <%= nixops_page(assigns) %>
-     	<% "es" -> %> <%= home_made_es_page(assigns) %>
-     	<% "live_md" -> %> <%= plain_markdown(assigns,'https://gitlab.com/akselsk/live_markdown/-/raw/master/README.md') %>
+     	<% "home" -> %>
+     	<%= home_page(assigns) %>
+     	<% "projects" -> %>
+        <%= menu_page(assigns) %>
+    <hr class="border-solid border-stadler mb-4"> </hr>
+     	<%= projects_page(assigns) %>
+     	<% "led" -> %>
+            <%= menu_page(assigns) %>
+            <hr class="border-solid border-stadler mb-4"> </hr>
+     	    <%= africa_burn(assigns) %>
+     	<% "nixops" -> %>
+        <%= menu_page(assigns) %>
+        <hr class="border-solid border-stadler mb-4"> </hr>
+     	<%= nixops_page(assigns) %>
+     	<% "es" -> %>
+        <%= menu_page(assigns) %>
+        <hr class="border-solid border-stadler mb-4"> </hr>
+     	<%= home_made_es_page(assigns) %>
+
+     	<% "live_md" -> %>
+        <%= menu_page(assigns) %>
+        <hr class="border-solid border-stadler"> </hr>
+     	<%= plain_markdown(assigns,'https://gitlab.com/akselsk/live_markdown/-/raw/master/README.md') %>
       <% _ -> %>  <% home_page(assigns) %>
     <% end %>
     """
@@ -54,6 +69,7 @@ defmodule StadlerNoWeb.PageLive do
       	<h1 style="border: 0px;" class="text-3xl">Aksel Stadler</h1>
       	<h1 style="border: 0px;" class="text-white opacity-67 text-sm ">Robotics Engineer & Programmer</h1>
       </div>
+      <%= menu_page(assigns) %>
       </div>
 
     """
@@ -63,8 +79,6 @@ defmodule StadlerNoWeb.PageLive do
   def projects_page(assigns) do
     ~L"""
     <section>
-    <h1 class="text-stadler text-2xl"> Projects </h1>
-    <hr class="border-solid border-stadler"> </hr>
     <%= project_page_intro(%{
     	image: "/images/saunandtermo.png",
     	title: "Led Thermometer for Africa Burn",
@@ -122,11 +136,11 @@ defmodule StadlerNoWeb.PageLive do
 
   def project_page_intro(assigns) do
     ~L"""
-    <div class="flex flex-wrap mt-8 -mx-2">
+    <div class="flex flex-wrap mt-2 -mx-2">
     <div class="w-full lg:w-1/2 px-2 ">
     <img class="w-full bg-koronavenn" src=" <%= Routes.static_path(StadlerNoWeb.Endpoint, @image)  %>"/>
     </div>
-    <div class="w-full lg:w-1/2 px-2 ">
+    <div class="w-full lg:w-1/2  ">
     <%= live_patch @title, to: @link %>
     <p class="text-white opacity-67 text-sm mt-2"> <%= @description %> </p>
 
@@ -140,31 +154,23 @@ defmodule StadlerNoWeb.PageLive do
     </div>    
     """
     end
-       
+
 
   def menu_page(assigns) do
     ~L"""
     <div class="nav-links">
       <a phx-click="nav-home"> Home </a>
-      <a phx-click="nav-projects"> Projects</a>
-      <a>  Blogs </a>
+      <a phx-click="nav-projects"
+      <%= if @page =="projects" do %>
+          class="text-stadler"
+          <% end %>
+          >
+
+        Projects</a>
+      </div>
     """
   end
 
-  def burger_menu(assigns) do
-    ~L"""
-    <div style="position: fixed; top:20px; right:20px;">
-    <a phx-click="toggle-menu" class="material-icons text-white opacity-67 text-2xl">
-      <%= if @page == "menu" do  %>
-      	clear
-      <% else %>
-        menu
-      <% end %>
-    </a>
-    </div>
-
-    """
-  end
 
 
   def plain_markdown(assigns, path) do
