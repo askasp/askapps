@@ -35,38 +35,39 @@ defmodule StadlerNoWeb.PageLive do
     ~L"""
     <%= case @page do %>
      	<% "home" -> %>
-     	<%= home_page(assigns) %>
+     	    <%= header(assigns) %>
+    <hr class="border-solid border-stadler mb-4"> </hr>
      	<% "projects" -> %>
-        <%= menu_page(assigns) %>
+        <%= header(assigns) %>
     <hr class="border-solid border-stadler mb-4"> </hr>
      	<%= projects_page(assigns) %>
      	<% "led" -> %>
-            <%= menu_page(assigns) %>
+            <%= header(assigns) %>
             <hr class="border-solid border-stadler mb-4"> </hr>
      	    <%= africa_burn(assigns) %>
      	<% "nixops" -> %>
-        <%= menu_page(assigns) %>
+        <%= header(assigns) %>
         <hr class="border-solid border-stadler mb-4"> </hr>
      	<%= nixops_page(assigns) %>
      	<% "es" -> %>
-        <%= menu_page(assigns) %>
+        <%= header(assigns) %>
         <hr class="border-solid border-stadler mb-4"> </hr>
      	<%= home_made_es_page(assigns) %>
 
      	<% "live_md" -> %>
-        <%= menu_page(assigns) %>
+        <%= header(assigns) %>
         <hr class="border-solid border-stadler mb-4"> </hr>
      	<%= plain_markdown(assigns,'https://gitlab.com/akselsk/live_markdown/-/raw/master/README.md') %>
-      <% _ -> %>  <% home_page(assigns) %>
+      <% _ -> %>  <% header(assigns) %>
     <% end %>
     """
   end
 
-  def home_page(assigns) do
+  def header(assigns) do
     ~L"""
-      <div class="centered">
-      <div clpass="m-auto text-center">
-      	<h1 style="border: 0px;" class="text-3xl">Aksel Stadler</h1>
+      <div class="md:mt-40">
+      <div class=" text-center" >
+      	<h1 style="border: 0px;" class="text-3xl"> Aksel Stadler</h1>
       	<h1 style="border: 0px;" class="text-white opacity-67 text-sm ">Robotics Engineer & Programmer</h1>
       </div>
       <%= menu_page(assigns) %>
@@ -159,7 +160,13 @@ defmodule StadlerNoWeb.PageLive do
   def menu_page(assigns) do
     ~L"""
     <div class="nav-links">
-      <a phx-click="nav-home"> Home </a>
+      <a phx-click="nav-home"
+      <%= if @page =="home" do %>
+          class="text-stadler"
+          <% end %>
+
+
+      > Home </a>
       <a phx-click="nav-projects"
       <%= if @page =="projects" do %>
           class="text-stadler"
